@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#171717">
+  <title>VELORIA — The Art of Elegance</title>
+  <meta name="description" content="VELORIA by NEXORA — Une allure précieuse, à votre portée.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold:#c7a46b; --ivory:#f7f3ec; --black:#171717;
+      --muted:#77736d; --white:#fff;
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { background:var(--ivory); color:var(--black); font-family:Manrope,sans-serif; }
+    button { font:inherit; cursor:pointer; }
+    .top { background:var(--black); color:#e7d5b5; text-align:center; padding:9px; font-size:10px; letter-spacing:2px; }
+    header { height:76px; padding:0 6%; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #e6dfd3; }
+    .logo { font-family:"Bodoni Moda",serif; font-size:29px; letter-spacing:7px; }
+    .sublogo { font-size:8px; letter-spacing:3px; text-align:center; color:var(--muted); margin-top:2px; }
+    .cart { border:1px solid #d8c19a; background:transparent; padding:10px 15px; font-size:12px; }
+    .hero { min-height:480px; display:grid; grid-template-columns:1fr 1fr; background:#e9e1d4; }
+    .hero-copy { padding:90px 10%; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; }
+    .eyebrow { color:#927348; letter-spacing:4px; font-size:10px; margin-bottom:22px; }
+    h1 { font-family:"Bodoni Moda",serif; font-size:clamp(42px,6vw,76px); font-weight:400; line-height:1.08; }
+    .hero-copy p { color:#625d55; line-height:1.9; font-size:13px; margin:22px 0 28px; max-width:360px; }
+    .dark-btn { background:var(--black); color:white; border:0; padding:16px 25px; letter-spacing:2px; font-size:10px; }
+    .hero-image { min-height:390px; background:linear-gradient(135deg,#c9b99e,#eee5d6); display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .hero-image img { width:100%; height:100%; object-fit:cover; }
+    .editorial { text-align:center; padding:75px 20px 35px; }
+    .editorial h2,.section-title { font-family:"Bodoni Moda",serif; font-size:37px; font-weight:400; }
+    .editorial p { color:var(--muted); font-size:12px; margin-top:12px; letter-spacing:1px; }
+    .products { padding:25px 6% 85px; display:grid; grid-template-columns:repeat(3,1fr); gap:25px; }
+    .product { background:#fff; }
+    .product img { width:100%; aspect-ratio:4/5; object-fit:cover; background:#e9e2d7; display:block; }
+    .product-info { padding:18px; }
+    .product-info h3 { font-family:"Bodoni Moda",serif; font-size:21px; font-weight:400; }
+    .product-info p { color:var(--muted); font-size:11px; margin:8px 0 14px; }
+    .price { color:#947348; font-size:14px; margin-bottom:15px; }
+    .add { width:100%; border:1px solid var(--black); background:white; padding:12px; font-size:10px; letter-spacing:1px; }
+    .add:hover { background:var(--black); color:white; }
+    .about { background:#1b1a18; color:#f7f3ec; text-align:center; padding:65px 20px; }
+    .about h2 { font-family:"Bodoni Moda",serif; font-size:35px; font-weight:400; }
+    .about p { color:#c7bca9; font-size:12px; margin:15px auto 0; max-width:480px; line-height:2; }
+    footer { padding:35px 20px; text-align:center; font-size:10px; color:var(--muted); letter-spacing:2px; }
+    .cart-panel { position:fixed; inset:0; background:#0008; z-index:10; display:none; justify-content:flex-end; }
+    .cart-panel.open { display:flex; }
+    .cart-box { background:var(--ivory); width:min(420px,100%); padding:25px; height:100%; overflow:auto; }
+    .cart-head { display:flex; justify-content:space-between; margin-bottom:25px; }
+    .cart-head h2 { font-family:"Bodoni Moda",serif; font-size:28px; font-weight:400; }
+    .close { border:0; background:none; font-size:24px; }
+    .cart-line { display:flex; justify-content:space-between; gap:10px; border-bottom:1px solid #ddd4c6; padding:15px 0; font-size:12px; }
+    .cart-line button { border:0; background:none; color:#956e43; }
+    .total { display:flex; justify-content:space-between; padding:22px 0; }
+    .empty { color:var(--muted); font-size:13px; }
+    .checkout { width:100%; background:#246b43; color:white; padding:16px; border:0; letter-spacing:1px; }
+    @media(max-width:700px) {
+      header { height:68px; padding:0 5%; }
+      .logo { font-size:24px; letter-spacing:5px; }
+      .hero { grid-template-columns:1fr; }
+      .hero-copy { padding:65px 8%; }
+      .hero-image { min-height:300px; }
+      .products { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; padding:15px 4% 55px; }
+      .product-info { padding:12px; }
+      .product-info h3 { font-size:17px; }
+      .section-title { font-size:31px; }
+    }
+    @media(max-width:360px) { .products { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="top">UNE ALLURE PRÉCIEUSE, À VOTRE PORTÉE</div>
+  <header>
+    <div><div class="logo">VELORIA</div><div class="sublogo">BY NEXORA</div></div>
+    <button class="cart" onclick="toggleCart(true)">PANIER (<span id="count">0</span>)</button>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">THE ART OF ELEGANCE</div>
+        <h1>L'élégance<br>est un choix.</h1>
+        <p>Des détails précieux. Une allure singulière. Découvrez une sélection pensée pour révéler votre style.</p>
+        <button class="dark-btn" onclick="document.getElementById('collection').scrollIntoView({behavior:'smooth'})">DÉCOUVRIR LA COLLECTION</button>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=1000" alt="Bijoux élégants">
+      </div>
+    </section>
+    <section class="editorial" id="collection">
+      <div class="eyebrow">LA SÉLECTION VELORIA</div>
+      <h2 class="section-title">Nos pièces choisies</h2>
+      <p>Le détail qui révèle votre style.</p>
+    </section>
+    <section class="products" id="products">
+      <article class="product">
+        <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=700" alt="Collier élégant">
+        <div class="product-info">
+          <h3>Collier Éclat Bleu</h3>
+          <p>Une touche délicate pour sublimer votre allure.</p>
+          <div class="price">99 DH</div>
+          <button class="add" onclick="addToCart('Collier Éclat Bleu',99)">AJOUTER AU PANIER</button>
+        </div>
+      </article>
+      <article class="product">
+        <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=700" alt="Bijou doré">
+        <div class="product-info">
+          <h3>Élégance Dorée</h3>
+          <p>Un détail raffiné à porter au quotidien.</p>
+          <div class="price">À définir</div>
+          <button class="add" onclick="alert('Ce modèle sera bientôt disponible.')">BIENTÔT DISPONIBLE</button>
+        </div>
+      </article>
+      <article class="product">
+        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=700" alt="Bracelet">
+        <div class="product-info">
+          <h3>Collection Signature</h3>
+          <p>Une allure discrète, une présence remarquable.</p>
+          <div class="price">À définir</div>
+          <button class="add" onclick="alert('Ce modèle sera bientôt disponible.')">BIENTÔT DISPONIBLE</button>
+        </div>
+      </article>
+    </section>
+    <section class="about">
+      <div class="eyebrow">VELORIA BY NEXORA</div>
+      <h2>La beauté du détail.</h2>
+      <p>Une allure qui ne passe pas inaperçue. Choisissez les détails qui expriment votre personnalité.</p>
+    </section>
+  </main>
+  <footer>VELORIA BY NEXORA · THE ART OF ELEGANCE</footer>
+  <div class="cart-panel" id="cartPanel" onclick="if(event.target===this)toggleCart(false)">
+    <div class="cart-box">
+      <div class="cart-head"><h2>Votre panier</h2><button class="close" onclick="toggleCart(false)">×</button></div>
+      <div id="cartItems"><p class="empty">Votre panier est vide.</p></div>
+      <div class="total"><strong>Total</strong><strong id="total">0 DH</strong></div>
+      <button class="checkout" onclick="checkout()">COMMANDER SUR WHATSAPP</button>
+    </div>
+  </div>
+  <script>
+    const WHATSAPP = "212654630946";
+    let cart = [];
+    function addToCart(name,price) {
+      const item=cart.find(x=>x.name===name);
+      if(item)item.qty++; else cart.push({name,price,qty:1});
+      renderCart();
+      alert("Produit ajouté au panier.");
+    }
+    function renderCart() {
+      document.getElementById("count").textContent=cart.reduce((s,x)=>s+x.qty,0);
+      document.getElementById("total").textContent=cart.reduce((s,x)=>s+x.price*x.qty,0)+" DH";
+      document.getElementById("cartItems").innerHTML=cart.length?cart.map((x,i)=>`<div class="cart-line"><span>${x.name} × ${x.qty}</span><span>${x.price*x.qty} DH <button onclick="removeItem(${i})">Supprimer</button></span></div>`).join(""):'<p class="empty">Votre panier est vide.</p>';
+    }
+    function removeItem(i) { cart.splice(i,1); renderCart(); }
+    function toggleCart(open) { document.getElementById("cartPanel").classList.toggle("open",open); }
+    function checkout() {
+      if(!cart.length){alert("Votre panier est vide.");return;}
+      const lines=cart.map(x=>`${x.name} x ${x.qty} = ${x.price*x.qty} DH`).join("\n");
+      const total=cart.reduce((s,x)=>s+x.price*x.qty,0);
+      const msg=`Bonjour VELORIA, je souhaite commander:\n${lines}\nTotal: ${total} DH\n\nNom:\nTéléphone:\nVille:\nAdresse:`;
+      window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg),"_blank");
+    }
+  </script>
+</body>
+</html>
